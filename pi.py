@@ -26,17 +26,18 @@ def roominfostr(ridd):
     live_start_time = json.loads(response.text)['data']['room_info']['live_start_time']
     online = json.loads(response.text)['data']['room_info']['online']
     timeStamp = live_start_time
-    dateArray = datetime.datetime.utcfromtimestamp(timeStamp) + datetime.timedelta(hours=8)
+    dateArray = datetime.datetime.utcfromtimestamp(timeStamp)
     # timedelta(hours=8)
     # print(dateArray)
     otherStyleTime = dateArray.strftime("%Y-%m-%d %H:%M:%S")
     print(otherStyleTime)
     print(type(otherStyleTime))
 
-    now = datetime.datetime.now()
+    now = datetime.datetime.now() + datetime.timedelta(hours=8)
     dc = now.strftime("%H:%M:%S")
     tzshj = dc
     print("github通知时间是：" + tzshj)
+
     d1 = now.strftime('%Y-%m-%d %H:%M:%S')
     print("github时间d1是：" + d1)
     d3 = datetime.datetime.strptime(d1, '%Y-%m-%d %H:%M:%S')
@@ -82,4 +83,3 @@ def roominfotitle(ridd):
     title=str(title)
     title=striptags(title)
     return title
-
