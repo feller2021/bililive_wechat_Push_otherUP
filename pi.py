@@ -27,7 +27,7 @@ def roominfostr(ridd):
     online = json.loads(response.text)['data']['room_info']['online']
     timeStamp = live_start_time
     timeStamp = int(timeStamp)
-    dateArray = datetime.datetime.fromtimestamp(timeStamp)
+    dateArray = datetime.datetime.fromtimestamp(timeStamp)+ datetime.timedelta(hours=8)
     # timedelta(hours=8)
     # print(dateArray)
     otherStyleTime = dateArray.strftime("%Y-%m-%d %H:%M:%S")
