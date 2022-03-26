@@ -6,6 +6,7 @@
 import json
 import time
 import pi
+import re
 import requests
 
 
@@ -93,9 +94,7 @@ def get_real_url(rid):
         return False
 
 
-
 def binali(rid):
-
     rel = get_real_url(rid)
     # 21314309
     s = ''
@@ -110,8 +109,6 @@ def binali(rid):
         time.sleep(2)
 
     return p
-
-
 
 
 #
@@ -134,10 +131,7 @@ def binali(rid):
 #         print("未开播")
 
 
-
-
 def bililive(roomid):
-
     try:
 
         fasongneir3 = str(binali(roomid))
@@ -148,13 +142,23 @@ def bililive(roomid):
         infoo = pi.roominfostr(roomid)
         infoo = str(infoo)
 
-        summary =pi.summary(roomid)
+        summary = pi.summary(roomid)
         summary = str(summary)
-        
-        
-        
 
-        fasongneir = infoo + '真实地址:\n' + fasongneir3
+        lianjie = ''
+        pattern = re.compile(r'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+')  # 匹配模式
+
+        # string = 'Its after 12 noon, do you know where your rooftops are? http://tinyurl.com/NYCRooftops '
+        url = re.findall(pattern, fasongneir3)
+        for urll in url:
+            # print(urll)
+            lianjie = urll
+        # print('lianjie'+lianjie)
+        # print(lianjie)
+
+        lianjie2 = "<a href = " + lianjie + ">点击该链接</a>"
+
+        fasongneir = infoo + '真实地址:\n' + lianjie2
         # postdata = json.dumps({"msg": fasongneir})
         # time.sleep(4)
         # repp = requests.post(url=imgpost, data=postdata, headers=headers)
@@ -176,6 +180,6 @@ def bililive(roomid):
         }
         res = requests.post(url=url, json=FormData, headers=HEADERS)
         print(res.text)
-        
+
     except:
         print("未开播")
