@@ -148,9 +148,34 @@ def bililive(roomid):
         infoo = pi.roominfostr(roomid)
         infoo = str(infoo)
 
+        summary =pi.summary(roomid)
+        summary = str(summary)
+        
+        
+        
+
         fasongneir = infoo + '真实地址:\n' + fasongneir3
-        postdata = json.dumps({"msg": fasongneir})
-        time.sleep(4)
-        repp = requests.post(url=imgpost, data=postdata, headers=headers)
+        # postdata = json.dumps({"msg": fasongneir})
+        # time.sleep(4)
+        # repp = requests.post(url=imgpost, data=postdata, headers=headers)
+        url = 'http://wxpusher.zjiecode.com/api/send/message'
+        HEADERS = {'Content-Type': 'application/json'}
+        FormData = {
+            "appToken": "AT_iaPxpUE0FLNUECu1zFnKhFR7R9NU5K8e",
+            "content": fasongneir,
+            "summary": summary,
+            "contentType": 2,
+
+            "topicIds": [
+
+            ],
+            "uids": [
+                "UID_noWsar4x3r0zd4WqjCaoD5CIX9Xi"
+            ],
+            "url": ""
+        }
+        res = requests.post(url=url, json=FormData, headers=HEADERS)
+        print(res.text)
+        
     except:
         print("未开播")
