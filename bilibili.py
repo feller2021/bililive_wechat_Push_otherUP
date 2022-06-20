@@ -160,6 +160,12 @@ def bililive(roomid):
 
         regex = re.compile(r"(.+?)/live-bvc/")
         # 替换国内cdn 防止403
+        #c1--cn-gotcha03.bilivideo.com
+        #d1--cn-gotcha03.bilivideo.com
+        #d1--cn-gotcha103.bilivideo.com
+        #d1--cn-gotcha104.bilivideo.com
+        #d1--cn-gotcha204.bilivideo.com
+        #cn-zjhz-cu-01-01.bilivideo.com
 
         lianjie = regex.sub('https://c1--cn-gotcha01.bilivideo.com/', lianjie)
 
