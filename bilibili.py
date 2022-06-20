@@ -153,8 +153,15 @@ def bililive(roomid):
         for urll in url:
             # print(urll)
             lianjie = urll
+            # print(lianjie)
         # print('lianjie'+lianjie)
         # print(lianjie)
+
+
+        regex = re.compile(r"(.+?)/live-bvc/")
+
+        lianjie = regex.sub('https://c1--cn-gotcha01.bilivideo.com/', lianjie)
+
 
         lianjie2 = "<a href = " + lianjie + ">点击该链接</a>"
 
@@ -183,3 +190,6 @@ def bililive(roomid):
 
     except:
         print("未开播")
+
+# if __name__ == '__main__':
+#     bililive(3)
