@@ -68,7 +68,7 @@ def roominfostr(ridd):
         live_status = '未开播'
         otherStyleTime = ''
 
-    roominfostr =  '本次直播主题：' + title + '\n' + '直播间简介：' + description + '\n'+ '直播tag：' + tags + '\n'+ '本次开播时间：' + otherStyleTime + '\n' + '当前直播人气：' + online + '\n' + '房间号：' + room_id + '\n' + '用户UID：' + uid + '\n' + '开播状态：' + live_status + '\n'+ '推送时间：' + tzshj + ' ' + '\n'  + '延时推送：' + timedelay + ' ' + '\n'
+    roominfostr =  '本次直播主题：' + title + '<br>' + '直播间简介：' + description + '<br>'+ '直播tag：' + tags + '<br>'+ '本次开播时间：' + otherStyleTime + '<br>' + '当前直播人气：' + online + '<br>' + '房间号：' + room_id + '<br>' + '用户UID：' + uid + '<br>' + '开播状态：' + live_status + '<br>'+ '推送时间：' + tzshj + ' ' + '<br>'  + '延时推送：' + timedelay + ' ' + '<br>'
 
     print(roominfostr)
     return roominfostr
