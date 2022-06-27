@@ -167,7 +167,7 @@ def bililive(roomid):
         #d1--cn-gotcha204.bilivideo.com
         #https://rec.danmuji.org/dev/bilibili-cdn
 
-        lianjie = regex.sub('https://c1--cn-gotcha01.bilivideo.com/', lianjie)
+        lianjie = regex.sub('https://d1--cn-gotcha09.bilivideo.com/', lianjie)
 
 
         lianjie2 = "<a href = " + lianjie + ">点击该链接</a>"
