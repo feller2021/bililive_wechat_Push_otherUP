@@ -10,7 +10,11 @@ def get_livestatus(uid):
     payload = json.dumps(middle)
     r = requests.post(url, data=payload, headers=header)
     dict = r.json()
-    statusvalue = dict["data"][str(uid)]['room_id']
+    try:
+        statusvalue = dict["data"][str(uid)]['room_id']
+    except:
+        statusvalue = 3
+    
     return statusvalue
 
 
