@@ -137,7 +137,7 @@ def bililive(roomid):
         fasongneir3 = str(binali(roomid))
 
         imgpost = 'https://push.bot.qw360.cn/send/e54011f0-f9aa-11eb-806f-9354f453c154'
-        headers = {'Content-Type': 'application/json'}
+        headers = {'Content-Type': 'application/json','Connection':'close'}
 
         infoo = pi.roominfostr(roomid)
         infoo = str(infoo)
@@ -175,9 +175,9 @@ def bililive(roomid):
         fasongneir = infoo + '真实地址:\n' + lianjie2
         # postdata = json.dumps({"msg": fasongneir})
         # time.sleep(4)
-        # repp = requests.post(url=imgpost, data=postdata, headers=headers)
+        # repp = requests.post(url=imgpost, data=postdata, headers=headers,stream=True, verify=False)
         url = 'http://wxpusher.zjiecode.com/api/send/message'
-        HEADERS = {'Content-Type': 'application/json'}
+        HEADERS = {'Content-Type': 'application/json','Connection':'close'}
         FormData = {
             "appToken": "AT_iaPxpUE0FLNUECu1zFnKhFR7R9NU5K8e",
             "content": fasongneir,
@@ -192,7 +192,7 @@ def bililive(roomid):
             ],
             "url": ""
         }
-        res = requests.post(url=url, json=FormData, headers=HEADERS)
+        res = requests.post(url=url, json=FormData, headers=HEADERS,stream=True, verify=False)
         print(res.text)
 
     except:
