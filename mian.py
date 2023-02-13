@@ -11,7 +11,7 @@ from datetime import datetime, timedelta
 import os
 import bilibili
 import uidtoroomid
-
+import traceback
 
 
 class bzMonitor():
@@ -34,9 +34,9 @@ class bzMonitor():
                 # url = 'host_uid=%s&o' % (i)
                 # self.bzurl.append(url)
         except Exception as e:
-            self.echoMsg('Error', e)
-
-            sys.exit()
+            print(traceback.format_exc())
+            # self.echoMsg('Error', e)
+            # sys.exit()
 
 
 
